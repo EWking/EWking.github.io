@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EWson</title>
   
-  
+  <subtitle>2020 START</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ewking.github.io/"/>
@@ -10,7 +10,7 @@
   <id>https://ewking.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>小爽子</name>
     
   </author>
   
