@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ewking.github.io/"/>
-  <updated>2020-01-05T01:59:07.996Z</updated>
+  <updated>2020-01-05T02:36:17.618Z</updated>
   <id>https://ewking.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>[first]</title>
-    <link href="https://ewking.github.io/2020/01/05/first/"/>
-    <id>https://ewking.github.io/2020/01/05/first/</id>
-    <published>2020-01-05T01:59:07.000Z</published>
-    <updated>2020-01-05T01:59:07.996Z</updated>
+    <title>myfirst</title>
+    <link href="https://ewking.github.io/2020/01/05/myfirst/"/>
+    <id>https://ewking.github.io/2020/01/05/myfirst/</id>
+    <published>2020-01-05T02:36:17.000Z</published>
+    <updated>2020-01-05T02:36:17.618Z</updated>
     
     <summary type="html">
     
@@ -32,30 +32,13 @@
   </entry>
   
   <entry>
-    <title>myFirstBlog</title>
-    <link href="https://ewking.github.io/2020/01/03/myfirstblog/"/>
-    <id>https://ewking.github.io/2020/01/03/myfirstblog/</id>
-    <published>2020-01-03T12:19:14.000Z</published>
-    <updated>2020-01-03T13:18:45.128Z</updated>
+    <title>[first]</title>
+    <link href="https://ewking.github.io/2020/01/05/first/"/>
+    <id>https://ewking.github.io/2020/01/05/first/</id>
+    <published>2020-01-05T01:59:07.000Z</published>
+    <updated>2020-01-05T01:59:07.996Z</updated>
     
     <summary type="html">
-    
-      
-      
-        
-        
-          &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;center&quot;&gt;name&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;addr&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td
-        
-      
     
     </summary>
     
