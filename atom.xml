@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ewking.github.io/"/>
-  <updated>2020-01-03T13:18:45.128Z</updated>
+  <updated>2020-01-05T01:59:07.996Z</updated>
   <id>https://ewking.github.io/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[first]</title>
+    <link href="https://ewking.github.io/2020/01/05/first/"/>
+    <id>https://ewking.github.io/2020/01/05/first/</id>
+    <published>2020-01-05T01:59:07.000Z</published>
+    <updated>2020-01-05T01:59:07.996Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>myFirstBlog</title>
