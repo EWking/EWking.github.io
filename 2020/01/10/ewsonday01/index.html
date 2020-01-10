@@ -4,8 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="myfirst, C++">
-    <meta name="description" content="myfirst | EWson-2020Restart">
+    <meta name="keywords" content="EWsonDay01, C++">
+    <meta name="description" content="1.内存分区练习
+​    1.栈区练习
+char *func()
+{
+   char s[] = &#34;Hello world&#34;;//s数组为栈区定义的变量，&#34;hello world&#34;定义在字符串常量区
+    //s数组中存放的值为“hel">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>myfirst | EWson-2020Restart</title>
+    <title>EWsonDay01 | EWson-2020Restart</title>
     <link rel="icon" type="image/png" href="/EWson.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">myfirst</h1>
+                    <h1 class="description center-align post-title">EWsonDay01</h1>
                 </div>
             </div>
         </div>
@@ -424,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/study/">
+                                <span class="chip bg-color">study</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -438,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-05
+                    2020-01-10
                 </div>
                 
 
@@ -455,7 +464,77 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p><strong>1.内存分区练习</strong></p>
+<p>​    1.栈区练习</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">char</span> s<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Hello world"</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//s数组为栈区定义的变量，"hello world"定义在字符串常量区</span>
+    <span class="token comment" spellcheck="true">//s数组中存放的值为“hello world”</span>
+   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">return</span> s<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回s数组的首地址</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">test01</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//p指针定义在栈区</span>
+    p <span class="token operator">=</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//将s数组的地址放入p中，p指向s数组</span>
+    <span class="token comment" spellcheck="true">//上一条语句执行完后，栈变量销毁，p中存放的地址指向未申请的不合法内存</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<img src="/2020/01/10/ewsonday01/01-栈区练习.png">
+
+<p>2.堆区练习</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">create_memory</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>p<span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//先是初始化p指针，p = str; </span>
+    <span class="token comment" spellcheck="true">//在堆区为创建了由p指向的内存空间，与str无关</span>
+    <span class="token comment" spellcheck="true">//len = 32;</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//p = (char *)malloc(sizeof(char) * len);</span>
+    p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">test02</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//并没有给str分配指向的内存空间</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>str <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//传的是NULL</span>
+    <span class="token function">create_memory</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//执行完后未释放P内存造成内存泄漏</span>
+
+    <span class="token keyword">char</span> <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token string">"hello world"</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//给栈区变量s指针拷贝字符串常量区的字符串地址</span>
+    <span class="token function">strcpy</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//给str的NULL非法地址拷贝内容</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+<span class="token punctuation">}</span></code></pre>
+<img src="/2020/01/10/ewsonday01/02-堆区练习.png">
+
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">create_memory</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>p<span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token constant">NULL</span> <span class="token operator">==</span> <span class="token operator">*</span>p<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">test03</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>str <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token function">create_memory</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>str<span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">char</span> <span class="token operator">*</span>s  <span class="token operator">=</span> <span class="token string">"hello world"</span><span class="token punctuation">;</span>
+    <span class="token function">strcpy</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>str <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">free</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        str <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<img src="/2020/01/10/ewsonday01/03-堆区练习.png">
+
+<p>3.全局静态区练习</p>
+<pre class=" language-c"><code class="language-c"></code></pre>
+
             </div>
             <hr/>
 
@@ -480,7 +559,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ewking.github.io/2020/01/05/myfirst/">https://ewking.github.io/2020/01/05/myfirst/</a>
+                    <a href="https://ewking.github.io/2020/01/10/ewsonday01/">https://ewking.github.io/2020/01/10/ewsonday01/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -517,7 +596,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/study/">
+                                    <span class="chip bg-color">study</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -681,9 +764,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/01/10/ewsonday01/">
                     <div class="card-image">
@@ -706,9 +790,9 @@ char *func()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -717,6 +801,7 @@ char *func()
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -735,20 +820,19 @@ char *func()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/05/first/">
+                <a href="/2020/01/05/myfirst/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="2020 新的开始">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="myfirst">
                         
-                        <span class="card-title">2020 新的开始</span>
+                        <span class="card-title">myfirst</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ​        我们从来不知道，梦开始的地方在哪？却也耐不住自己的幻想，似乎每个阶段都画上一个符号，或悲喜，或离别，或情感。
-
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -762,14 +846,6 @@ char *func()
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%A2%A6%E6%83%B3/">
-                        <span class="chip bg-color">梦想</span>
-                    </a>
-                    
                 </div>
                 
             </div>

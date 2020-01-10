@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ewking.github.io/"/>
-  <updated>2020-01-05T02:36:17.618Z</updated>
+  <updated>2020-01-10T13:13:09.904Z</updated>
   <id>https://ewking.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>EWsonDay01</title>
+    <link href="https://ewking.github.io/2020/01/10/ewsonday01/"/>
+    <id>https://ewking.github.io/2020/01/10/ewsonday01/</id>
+    <published>2020-01-10T09:30:27.000Z</published>
+    <updated>2020-01-10T13:13:09.904Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;1.内存分区练习&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​    1.栈区练习&lt;/p&gt;
+&lt;pre class=&quot; language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="study" scheme="https://ewking.github.io/tags/study/"/>
+    
+  </entry>
   
   <entry>
     <title>myfirst</title>
